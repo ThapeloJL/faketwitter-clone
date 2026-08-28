@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FakeTwitter</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="responsiveness.css" />
+    <link rel="icon" href="./assets/twitter-svgrepo-com.svg" />
+    <script>
+      (function () {
+        var saved = localStorage.getItem("theme");
+        if (saved === "light") {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      })();
+    </script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+  <body>
+    <div class="app-shell">
+      <!-- Sidebar Left -->
+      <nav class="sidebar-left">
+        <div class="logo-icon">
+          <img
+            src="./assets/twitter-svgrepo-com.svg"
+            alt="FakeTwitter logo"
+            class="logo-img"
+          />
+          <span>FakeTwitter</span>
+        </div>
+        <ul class="nav-menu">
+          <li class="nav-item active">
+            <span class="material-symbols-outlined"> home </span>
+            <span class="nav-label">Home</span>
+          </li>
+          <li class="nav-item">
+            <span class="material-symbols-outlined"> explore </span>
+            <span class="nav-label">Explore</span>
+          </li>
+          <li class="nav-item">
+            <span class="material-symbols-outlined"> notifications </span>
+            <span class="nav-label">Notifications</span>
+          </li>
+          <li class="nav-item">
+            <span class="material-symbols-outlined"> person_add </span>
+            <span class="nav-label">Follow</span>
+          </li>
+          <li class="nav-item">
+            <span class="material-symbols-outlined"> chat_bubble </span>
+            <span class="nav-label">Chat</span>
+          </li>
+          <li class="nav-item">
+            <span class="material-symbols-outlined"> planet </span>
+            <span class="nav-label">Grok</span>
+          </li>
+          <li class="nav-item">
+            <span class="material-symbols-outlined"> history </span>
+            <span class="nav-label">History</span>
+          </li>
+          <li class="nav-item">
+            <span class="material-symbols-outlined"> check_circle </span>
+            <span class="nav-label">Premium</span>
+          </li>
+          <li class="nav-item">
+            <span class="material-symbols-outlined"> person </span>
+            <span class="nav-label">Profile</span>
+          </li>
+          <li class="nav-item">
+            <span class="material-symbols-outlined"> more_horiz </span>
+            <span class="nav-label">More</span>
+          </li>
+
+          <!-- Theme Toggle : Manual - no cursor feature -->
+          <li class="nav-item">
+            <label for="theme-checkbox" class="theme-toggle-label">
+              <input
+                type="checkbox"
+                id="theme-checkbox"
+                class="theme-checkbox"
+              />
+              <span class="toggle-track">
+                <span class="toggle-thumb"></span>
+              </span>
+            </label>
+            <span class="nav-label">Light Mode</span>
+          </li>
+        </ul>
+
+        <button class="post-btn">Post</button>
+
+        <div class="account-settings">
+          <img
+            class="avatar avatar--sm"
+            src="https://placehold.co/40x40/1d3050/fff?text=%20"
+            alt=""
+          />
+          <div class="account-info">
+            <span class="account-name">username</span>
+            <span class="account-handle">@username</span>
+          </div>
+          <button class="more-btn">
+            <span class="material-symbols-outlined">more_horiz</span>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Center Timeline  -->
+      <main class="timeline">
+        <header class="timeline-header">
+          <div class="tabs">
+            <span class="tab tab-active">For You</span>
+            <span class="tab">Following</span>
+          </div>
+        </header>
+
+        <section class="composer">
+          <img
+            class="avatar avatar--sm"
+            src="https://placehold.co/40x40/1d3050/fff?text=%20"
+            alt=""
+          />
+          <div class="composer-body">
+            <textarea
+              id="composer-input"
+              class="composer-input"
+              placeholder="What's happening?"
+              rows="2"
+            ></textarea>
+            <div class="composer-toolbar">
+              <button class="toolbar-icon" type="button">
+                <span class="material-symbols-outlined">image</span>
+              </button>
+              <button class="toolbar-icon" type="button">
+                <span class="material-symbols-outlined">gif</span>
+              </button>
+              <button class="toolbar-icon" type="button">
+                <span class="material-symbols-outlined">planet</span>
+              </button>
+              <button class="toolbar-icon" type="button">
+                <span class="material-symbols-outlined">event_list</span>
+              </button>
+              <button class="toolbar-icon" type="button">
+                <span class="material-symbols-outlined">mood</span>
+              </button>
+              <button class="toolbar-icon" type="button">
+                <span class="material-symbols-outlined">calendar_clock</span>
+              </button>
+              <button class="toolbar-icon" type="button">
+                <span class="material-symbols-outlined">location_on</span>
+              </button>
+              <span id="composer-count" class="char-count">280</span>
+              <button
+                id="composer-post-btn"
+                class="post-btn"
+                type="button"
+                disabled
+              >
+                Post
+              </button>
+            </div>
+          </div>
+        </section>
+        <div id="feed"></div>
+      </main>
+
+      <!-- Sidebar Right -->
+      <aside class="sidebar-right">
+        <div class="search-box">
+          <span class="material-symbols-outlined icon">search</span>
+          <input type="search-input" type="text" placeholder="Search" />
+        </div>
+
+        <section class="widget widget-premium">
+          <h3 class="widget-title">Subscribe to Premium</h3>
+          <p class="widget-body">
+            Get rid of ads, see your analytics, boost your replies
+          </p>
+          <button class="subscribe-btn">Subscribe</button>
+        </section>
+
+        <section class="widget widget-news">
+          <div class="widget-header">
+            <h3 class="widget-title">Todays News</h3>
+            <span class="material-symbols-outlined widget-icon">close</span>
+          </div>
+          <ul class="news-list">
+            <li class="news-item">
+              <h4 class="news-headline">
+                Cassper Nyovest Faces Backlash Over Elon Musk Internet Comments
+              </h4>
+              <div class="news-source">
+                <span class="news-text"
+                  >6 hours ago - Entertainment - 500 posts</span
+                >
+              </div>
+            </li>
+            <li class="news-item">
+              <h4 class="news-headline">
+                Hugo Broos Warns Against Pitso Mosimane as Bafana Coach Amid Pay
+                Dispute
+              </h4>
+              <div class="news-source">
+                <span class="news-text">3 hours ago - Sports - 980 posts</span>
+              </div>
+            </li>
+            <li class="news-item">
+              <h4 class="news-headline">
+                Rory Petzer's Clever Pun on Johannesburg's Egg Word Goes Viral
+              </h4>
+              <div class="news-source">
+                <span class="news-text">3 hours ago - Other - 743 posts</span>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <section class="widget widget-trends">
+          <h3 class="widget-title">Whats happening?</h3>
+          <div class="trend-item">
+            <div class="trend-info">
+              <span class="-trend-name">trending in South Africa</span>
+              <span class="trend-menu">#zaiotechnology</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="widget widget-premium">
+          <h3 class="widget-title">Who to follow</h3>
+          <ul class="follow-list">
+            <li class="follow-item">
+              <span class="material-symbols-outlined">account_circle</span>
+              <div class="follow-info">
+                <span class="follow-name">Zaio</span>
+                <span class="follow-handle">@zaio</span>
+              </div>
+              <button class="follow-btn">Following</button>
+            </li>
+          </ul>
+        </section>
+
+        <footer class="footer-section">
+          <ul class="footer-items">
+            <li class="footer-item">Terms</li>
+            <li class="footer-item">Privacy</li>
+            <li class="footer-item">Cookies</li>
+            <li class="footer-item">Accessibility</li>
+            <li class="footer-item">More</li>
+            <li class="footer-item">@ 2026 FakeTwitter</li>
+          </ul>
+        </footer>
+      </aside>
+    </div>
+    <script src="theme.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
