@@ -6,13 +6,14 @@ A static,no build-step clone of the Twitter home timeline, built with HTML5 , CS
 Live Demo : []
 
 ## File Structure:
- faketwitter/
- |---index.html             Home/timeline page
- |---styles.css             Core Styling, layout
- |---responsiveness.css     Breakpoints Devices
- |---script.js              Tweet Composer, Tweets
- |---assests - twitter.svgrepo.com  
- |--- README.md
+faketwitter/
+├── index.html            Home / timeline page
+├── styles.css             Core styling, theme variables, layout
+├── responsiveness.css     Breakpoints (tablet / mobile)
+├── script.js               Tweet composer + feed render/post logic
+├── assets/
+│   └── twitter-svgrepo-com.svg   Logo / favicon
+└── README.md
 
 ## Basic Features
  -Three column X-style layout : left nav, center timeline, right sidebar.
