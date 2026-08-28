@@ -1,9 +1,9 @@
 FakeTwitter - X (Twitter) Timeline Clone
 
 # About 
-A static,no build-step clone of the Twitter home timeline, built with HTML5 , CSS and JavaScript.
+A lightweight, static clone of the Twitter/X home timeline. Built with vanilla HTML5, CSS, and JavaScript—no build tools required. Perfect for learning responsive design and DOM manipulation.
 
-Live Demo : []
+Live Demo : [https://faketwitter-clone.netlify.app/]
 
 ## File Structure:
 faketwitter/
@@ -14,6 +14,20 @@ faketwitter/
 ├── assets/
 │   └── twitter-svgrepo-com.svg   Logo / favicon
 └── README.md
+
+## Technologies
+
+- HTML5
+- CSS3 (Grid, Flexbox, :has() selector)
+- JavaScript
+- LocalStorage API
+
+## Future Enhancements
+
+- Backend API integration
+- User authentication
+- Image/media uploads
+- Like/retweet functionality
 
 ## Basic Features
  -Three column X-style layout : left nav, center timeline, right sidebar.
